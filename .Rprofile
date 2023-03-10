@@ -1,12 +1,31 @@
 
+# Options -----------------------------------------------------------------
+
 options(
+  # If warn is one, warnings are printed as they occur
   warn = 1,
   # warn on partial matches
-  warnPartialMatchArgs = TRUE,
   warnPartialMatchAttr = TRUE,
   warnPartialMatchDollar = TRUE,
-  useFancyQuotes = FALSE
-  )
+  useFancyQuotes = FALSE,
+  usethis.full_name = "Adam Sadowski",
+  # named list of default DESCRIPTION fields for new packages made
+  # with usethis::create_package().
+  usethis.description = list(
+    "Authors@R" = utils::person(
+      "Adam", "Sadowski",
+      email = "asadowsk@uoguelph.ca",
+      role = c("aut", "cre"),
+      comment = c(ORCID = "JANE'S-ORCID-ID")
+    ),
+    Version = "0.0.0.9000"
+  ),
+  usethis.destdir = "C:/Users/asadowsk/OneDrive - University of Guelph/packages",
+  usethis.overwrite = TRUE
+)
+
+
+# Non-Options -------------------------------------------------------------
 
 ## Auto-completion of package names in `require`, `library`
 utils::rc.settings(ipck = TRUE)
@@ -30,21 +49,3 @@ if (
 ) {
   options(shiny.launch.browser = .rs.invokeShinyPaneViewer)
 }
-
-## For Package Description ----
-
-options(
-  usethis.full_name = "Adam Sadowski",
-  usethis.protocol  = "ssh",
-  usethis.description = list(
-    "Authors@R" = utils::person(
-      "Adam", "Sadowski",
-      email = "asadowsk@uoguelph.ca",
-      role = c("aut", "cre"),
-      comment = c(ORCID = "JANE'S-ORCID-ID")
-    ),
-    Version = "0.0.0.9000"
-  ),
-  usethis.destdir = "C:/Users/asadowsk/OneDrive - University of Guelph/packages",
-  usethis.overwrite = TRUE
-)
